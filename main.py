@@ -11,8 +11,18 @@ UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Load your trained model once when the app starts
-model = load_model('model/pneumonia_model.h5')
+import os
+import gdown
+
+model_path = "model/pneumonia_model.h5"
+
+if not os.path.exists(model_path):
+    url = "https://drive.google.com/uc?id=10dAbEJfVdJ2qtQ3--iC9NIR5f5Vq6HYN"  
+    os.makedirs("model", exist_ok=True)
+    gdown.download(url, model_path, quiet=False)
+
+from tensorflow.keras.models import load_model
+model = load_model(model_path)
 
 # Define class labels (adjust if needed)
 class_labels = ['Normal', 'Pneumonia']
