@@ -1,7 +1,7 @@
 # PneumoniaDetection
 A deep learning web application built with Flask that classifies chest X-ray images as Normal or Pneumonia. Upload an image and get instant predictions powered by a trained CNN model.\
-Features
-1.Upload a chest X-ray image
+Features\
+1.Upload a chest X-ray image\
 2.Predict if it shows signs of Pneumonia or is Normal
 3.View prediction confidence
 4.Automatically downloads model from Google Drive
